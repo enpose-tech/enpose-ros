@@ -1,4 +1,4 @@
-# enpose_tracking
+# enpose_tracking ROS2 node
 
 A ROS 2 node for the [Enpose](https://enpose.tech) 6-DoF optical marker
 tracking system. It connects to an Enpose sensor, streams marker poses, and
