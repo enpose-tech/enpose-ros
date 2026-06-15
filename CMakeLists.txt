@@ -26,12 +26,15 @@ FetchContent_Declare(enpose_api
 FetchContent_MakeAvailable(enpose_api)
 
 add_executable(enpose_node src/enpose_node.cpp)
-ament_target_dependencies(enpose_node
-  rclcpp
-  geometry_msgs
-  tf2
-  tf2_ros
-  tf2_geometry_msgs)
+# ament_target_dependencies() was removed in recent Rolling; link the modern
+# CMake targets exported by each package directly. Message packages expose their
+# typesupport libraries via the <pkg>_TARGETS variable.
+target_link_libraries(enpose_node PRIVATE
+  rclcpp::rclcpp
+  ${geometry_msgs_TARGETS}
+  tf2::tf2
+  tf2_ros::tf2_ros
+  tf2_geometry_msgs::tf2_geometry_msgs)
 
 # Link the Enpose API. We take the headers and the cargo build dependency from
 # the upstream targets, but link the shared library by name (-L<dir> -lenpose_api)
@@ -48,7 +51,7 @@ target_include_directories(enpose_node PRIVATE
 get_target_property(ENPOSE_SHARED_LIB enpose_api_shared IMPORTED_LOCATION)
 get_filename_component(ENPOSE_LIB_DIR "${ENPOSE_SHARED_LIB}" DIRECTORY)
 target_link_directories(enpose_node PRIVATE "${ENPOSE_LIB_DIR}")
-target_link_libraries(enpose_node "-lenpose_api")
+target_link_libraries(enpose_node PRIVATE "-lenpose_api")
 
 # The Enpose shared library lives in the FetchContent build tree and is not a
 # system library, so install it alongside the node so it ships with the package.
