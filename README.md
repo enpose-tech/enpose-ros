@@ -43,13 +43,13 @@ source install/setup.bash
 Connect to the first sensor found on the network:
 
 ```bash
-ros2 run enpose_ros enpose_node
+ros2 run enpose_tracking enpose_node
 ```
 
 Connect to a specific sensor:
 
 ```bash
-ros2 run enpose_ros enpose_node --ros-args -p ip:=192.168.1.42
+ros2 run enpose_tracking enpose_node --ros-args -p ip:=192.168.1.42
 ```
 
 ## Parameters

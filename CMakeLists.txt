@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(enpose_ros)
+project(enpose_tracking)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
