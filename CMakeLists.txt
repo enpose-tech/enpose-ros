@@ -22,7 +22,7 @@ find_package(tf2_geometry_msgs REQUIRED)
 include(FetchContent)
 FetchContent_Declare(enpose_api
   GIT_REPOSITORY https://github.com/enpose-tech/enpose-api
-  GIT_TAG 0.1.0)
+  GIT_TAG 0.2.0)
 FetchContent_MakeAvailable(enpose_api)
 
 add_executable(enpose_node src/enpose_node.cpp)
