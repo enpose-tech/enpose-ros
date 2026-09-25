@@ -2,8 +2,8 @@
 Changelog for package enpose_tracking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.1 (2026-09-25)
+------------------
 * Minor build fix for build server
 * Contributors: Konstantin Schauwecker
 
